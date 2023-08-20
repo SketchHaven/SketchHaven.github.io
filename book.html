@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="viewport" content="width=device-width, intial-scale=1">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Book Your Sketch</title><link rel="icon" type="image/x-icon" href="logo.jpg">
+<link rel="stylesheet" href="tnc.css">
+<link rel="stylesheet" href="styletem.css">
+	<link rel="stylesheet" href="style.css">
+		<head>
+		<style>
+    html, body {
+	width:100%;
+	height:100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+        background: rgb(0,255,179);
+background: linear-gradient(45deg, rgba(0,255,179,1) 25%, rgba(47,230,251,1) 50%, rgba(69,155,255,1) 75%, rgba(93,0,255,0.4326923076923077) 100%);;
+    backface-visibility: 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#picture__input {
+  display: none;
+}
+
+.picture {
+  width: 200px;
+  min-height: 100px;
+  object-fit: fill;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  border: 2px dashed currentcolor;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.404);
+}
+
+.picture:hover {
+  color: #acacac;
+  background: transparent;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  color: #777;
+  background: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture__img {
+  max-width: 100%;
+}
+
+.box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height:650px
+	width: 400px;
+	padding: 50px;
+	background: rgba(0,0,0,.4);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+}
+.box h2 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #FFF;
+	text-align: center;
+}
+
+.box .inputBox {
+	position: relative;
+}
+.box .inputBox input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #FFF;
+	letter-spacing: 2px;
+	margin-bottom: 5px;
+	border: none;
+	border-bottom: 1px solid #FFF;
+	outline: none;
+	background: transparent;
+}
+.box .inputBox label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #FFF;
+	pointer-events: none;
+	transition: .10s;
+	animation: LabelOnLoad 1s forwards 0s ease;
+}
+@keyframes LabelOnLoad{
+    0%{
+        transform: rotate(0) translateY(-19px);
+        opacity: 0;
+        }
+    100%{
+        transform: rotate(0) translateY(0);
+        opacity: 1;
+        }
+}
+.box .inputBox input:focus ~ label, 
+.box .inputBox input:valid ~ label {
+	top: -19px;
+	left:0;
+	color: #03A9F4;
+	font-size: 12px;
+}
+.box input[type='submit'] {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFF;
+	background: #03A9F4;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
+}
+.box input[type='submit']:hover {
+	background-color: rgba(3, 169, 244, 0.7);
+}
+@media(max-width: 720px){
+	.box {
+		width: 80%;
+	}
+}
+  </style>
+</head>
+<body>
+<header class="header-area">
+        <!-- site-navbar start -->
+        <div class="navbar-area">
+            <div class="container">
+                <nav class="site-navbar">
+                    <!-- site logo -->
+                 <a href="index.html" class="site-logo"><img src="https://drive.google.com/uc?export=view&id=12lBpMRFLgmosy6mqHEMzMcV8EJnGntyQ" alt="" /></a>
+        <a href="index.html" class="site-logo"><img src="https://drive.google.com/uc?export=view&id=127Fl42F3nJS8VfLAnzT_ViQmxyEibVpi" alt="SKETCH HAVEN" style="width:200px;height:40px;"></a>
+                    <!-- site menu/nav -->
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          
+          <li><a href="about.html">About</a></li>
+          <li><a href="book.html">Book Sketch</a></li>
+          <li><a href="contact.html">Contact</a></li>
+                      <li><a href="gallery.html">gallery</a></li>
+                                   <li><a href="tnc.html">Terms and condition</a></li>
+        </ul>
+
+                    <!-- nav-toggler for mobile version only -->
+                    <button class="nav-toggler">
+          <span></span>
+        </button>
+                </nav>
+            </div>
+        </div>
+        <!-- navbar-area end -->
+    </header>
+        <!-- navbar-area end -->
+	<div class="box">
+		<form enctype="multipart/form-data" method="POST" action="https://formsubmit.co/1c9b5e5a16d1df73aca3e600a8f82d33" >
+      <div class="form-group">
+        <label class="picture" for="picture__input" tabIndex="0">
+          <span class="picture__image"></span>
+        </label>
+        <input id="picture__input" class="form-control" type="file" name="attachment" placeholder="Attachment">
+      
+      </div><br>
+      <div class="inputBox">
+				<input type="text" name="Name" required="">
+				<label for="">Name</label>
+			</div>
+			<div class="inputBox">
+				<input type="email" name="Email" required="">
+				<label for="">Email</label>
+			</div>
+     
+        <div class="form-group">
+          <div class="inputBox">
+          <input class="form-control" type="text" name="ADDRESS" required/>
+        	<label for="">Address</label>
+        </div>
+        <div class="form-group">
+          <div class="inputBox">
+          <input class="form-control" type="text" name="City" required/>
+        	<label for="">City</label>
+        </div>
+			<div class="inputBox">
+				<input type="text" name="State" required="">
+				<label for="">State</label>
+			</div>
+        <div class="form-group">
+          <div class="inputBox">
+          <input class="form-control" type="text" name="Description" required/>
+        	<label for="">Description</label>
+        </div> 
+        <div class="form-group">
+          <input class="btn btn-primary" type="submit" value="Submit" />
+        </div>		
+      </form>
+    </div>
+	</div>
+  <script>
+    const inputFile = document.querySelector("#picture__input");
+const pictureImage = document.querySelector(".picture__image");
+const pictureImageTxt = "Choose an image";
+pictureImage.innerHTML = pictureImageTxt;
+
+inputFile.addEventListener("change", function (e) {
+  const inputTarget = e.target;
+  const file = inputTarget.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function (e) {
+      const readerTarget = e.target;
+
+      const img = document.createElement("img");
+      img.src = readerTarget.result;
+      img.classList.add("picture__img");
+
+      pictureImage.innerHTML = "";
+      pictureImage.appendChild(img);
+    });
+
+    reader.readAsDataURL(file);
+  } else {
+    pictureImage.innerHTML = pictureImageTxt;
+  }
+});
+
+  </script>
+  <script src="tnc.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

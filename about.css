@@ -1,0 +1,239 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+  font-family: 'Open Sans', sans-serif;
+  
+  background: rgb(0,255,179);
+background: linear-gradient(45deg, rgba(0,255,179,1) 25%, rgba(47,230,251,1) 50%, rgba(69,155,255,1) 75%, rgba(93,0,255,0.4326923076923077) 100%);
+}
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-area {
+            background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .5)),
+            url(https://drive.google.com/uc?export=view&id=17oDDDSwpiZcJ98jvUeyUlrSn9kINQT5h);
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /* default css end */
+
+        /* navbar regular css start */
+
+        .navbar-area {
+            background: rgba(0, 0, 0, .6);
+            border-bottom: 1px solid #000;
+        }
+
+        .site-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a.site-logo {
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .site-logo img {
+            height: 50px;
+        }
+
+        .site-navbar ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .site-navbar ul li a {
+            color: #fff;
+            padding: 20px;
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .site-navbar li{
+            white-space: nowrap;
+            font-size: 0.7em;
+        }
+        .site-navbar ul li a:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+
+        /* navbar regular css end */
+
+        /* nav-toggler css start */
+
+        .nav-toggler {
+            border: 3px solid #fff;
+            padding: 5px;
+            background-color: transparent;
+            cursor: pointer;
+            height: 39px;
+            display: none;
+        }
+
+        .nav-toggler span,
+        .nav-toggler span:before,
+        .nav-toggler span:after {
+            width: 28px;
+            height: 3px;
+            background-color: #fff;
+            display: block;
+            transition: .3s;
+        }
+
+        .nav-toggler span:before {
+            content: '';
+            transform: translateY(-9px);
+        }
+
+        .nav-toggler span:after {
+            content: '';
+            transform: translateY(6px);
+        }
+
+        .nav-toggler.toggler-open span {
+            background-color: transparent;
+        }
+
+        .nav-toggler.toggler-open span:before {
+            transform: translateY(0px) rotate(45deg);
+        }
+
+        .nav-toggler.toggler-open span:after {
+            transform: translateY(-3px) rotate(-45deg);
+        }
+
+        /* nav-toggler css start */
+
+        /* intro-area css start */
+
+        .site-navbar h1 {
+            color: white;
+        }
+
+        .sec1 {
+            background-color: white;
+            color: black;
+            font-size: 2em;
+            padding: 1em;
+            line-height: 1.2em;
+            margin: 2%;
+            border-radius: 20px;
+        }
+    .cont{
+        margin-top: 0%;
+        border-radius: 10px;
+        border-top-left-radius: 0px;
+        background: white;
+        margin-left: 2%;
+        margin-right: 2%;
+
+            
+        }
+        .cont h1{
+        margin: 0%;
+        font-size: 2em;
+        }
+        .cont p{
+            margin: 5%;
+            font-size: 2em;
+        }
+        .abt{
+            margin-bottom: 0%;
+            font-size: 1.5em;
+            font-weight: 10px;
+            background: white;
+            margin-left: 2%;
+            margin-right: 55%;
+            border-top-left-radius: 10px;
+            text-align: center;
+            border-top-right-radius: 10px;
+        }
+        footer{
+	background-color: rgba(0,0,0,.6);
+	color: white;
+	bottom: 0;
+	text-align: center;
+	left: 0;
+	position: relative;
+	width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    line-height:2.8em
+}
+a:link,v:link{
+    color: white;
+}
+        /* mobile breakpoint start */
+
+        @media screen and (max-width: 767px) {
+            .container {
+                max-width: 720px;
+            }
+            /* navbar css for mobile start */
+            .nav-toggler {
+                display: block;
+            }
+            .site-navbar {
+                min-height: 60px;
+            }
+            .site-navbar ul {
+                position: absolute;
+                width: 100%;
+                height: calc(100vh - 60px);
+                left: 0;
+                top: 60px;
+                flex-direction: column;
+                align-items: center;
+                border-top: 1px solid #444;
+                background-color: rgba(0, 0, 0, .75);
+                max-height: 0;
+                overflow: hidden;
+                transition: .3s;
+                z-index: 10;
+            }
+            .site-navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+            .site-navbar ul li a {
+                padding: 25px;
+            }
+            .site-navbar ul li a:hover {
+                background-color: rgba(255, 255, 255, .1);
+            }
+            .site-navbar ul.open {
+                max-height: 100vh;
+                overflow: visible;
+            }
+            .intro-area h2 {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+            .sec1 {
+                background-color: white;
+                color: black;
+                font-size: 1em;
+                padding: 1em;
+                line-height: 1.2em;
+                margin: 2%;
+                border-radius: 20px;
+            }
+            /* navbar css for mobile end */
+            /* mobile breakpoint end */
