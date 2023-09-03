@@ -206,19 +206,10 @@ background: linear-gradient(45deg, rgba(0,255,179,1) 25%, rgba(47,230,251,1) 50%
           <input class="form-control" type="text" name="ADDRESS" required/>
         	<label for="">Address</label>
         </div>
-        <div class="form-group">
-          <div class="inputBox">
-          <input class="form-control" type="text" name="City" required/>
-        	<label for="">City</label>
-        </div>
-			<div class="inputBox">
-				<input type="text" name="State" required="">
-				<label for="">State</label>
-			</div>
-        <div class="form-group">
+          <div class="form-group">
           <div class="inputBox">
           <input class="form-control" type="text" name="Description" required/>
-        	<label for="">Description</label>
+        	<label for="">Description (canvas size-A5,A4,A3)</label>
         </div> 
         <div class="form-group">
           <input class="btn btn-primary" type="submit" value="Submit" />
@@ -229,7 +220,7 @@ background: linear-gradient(45deg, rgba(0,255,179,1) 25%, rgba(47,230,251,1) 50%
   <script>
     const inputFile = document.querySelector("#picture__input");
 const pictureImage = document.querySelector(".picture__image");
-const pictureImageTxt = "Choose an image";
+const pictureImageTxt = "Choose an image (the photo you want us to draw)";
 pictureImage.innerHTML = pictureImageTxt;
 
 inputFile.addEventListener("change", function (e) {
