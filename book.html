@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Sketch — Sketch Haven</title>
+<meta name="description" content="Request a custom hand-drawn sketch. Upload your reference photo, choose a canvas size and tell us what you want.">
+<meta name="theme-color" content="#f7f3ec">
+<link rel="canonical" href="https://sketchhaven.github.io/book.html">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<meta property="og:title" content="Book a Sketch — Sketch Haven">
+<meta property="og:description" content="Request a custom hand-drawn sketch. Upload your reference photo, choose a canvas size and tell us what you want.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sketchhaven.github.io/book.html">
+<meta property="og:image" content="https://sketchhaven.github.io/images/art-1-thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Sketch Haven home"><img src="images/logo.png" alt="" width="36" height="36"><span>Sketch Haven</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span class="bars"></span></button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="tnc.html">Terms</a></li>
+      <li class="nav-cta"><a href="book.html" aria-current="page">Book a Sketch</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+
+<div class="container page-title">
+  <span class="eyebrow">Commission</span>
+  <h1>Book a Sketch</h1>
+  <p>Share a reference photo and a few details. I will get back to you by email to confirm your slot &mdash; please don&rsquo;t send any payment until I do.</p>
+</div>
+<section class="section" style="padding-top:24px">
+  <div class="container form-wrap">
+    <form class="panel" method="POST" action="https://formsubmit.co/1c9b5e5a16d1df73aca3e600a8f82d33" enctype="multipart/form-data" data-validate novalidate>
+      <input type="hidden" name="_subject" value="New sketch booking — Sketch Haven">
+      <input type="hidden" name="_next" value="https://sketchhaven.github.io/thanks.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="notice error form-notice" role="alert" hidden></div>
+
+      <div class="field">
+        <span class="label" id="photo-label">Reference photo <span class="hint">(the photo you want drawn &middot; max 5 MB)</span></span>
+        <label class="dropzone" aria-labelledby="photo-label" style="position:relative">
+          <input type="file" name="attachment" accept="image/*" required>
+          <span class="dz-body"><strong>Click to choose an image</strong><span>or drag &amp; drop it here</span></span>
+        </label>
+        <button type="button" class="remove-file" hidden>Remove photo</button>
+        <div class="error-msg" aria-live="polite"></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><label for="name">Name</label><input id="name" type="text" name="Name" autocomplete="name" required><div class="error-msg" aria-live="polite"></div></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required><div class="error-msg" aria-live="polite"></div></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="phone">Phone <span class="hint">(optional)</span></label><input id="phone" type="tel" name="Phone" autocomplete="tel"></div>
+        <div class="field">
+          <label for="size">Canvas size</label>
+          <select id="size" name="Canvas size" required>
+            <option value="">Choose a size</option>
+            <option>A5</option><option>A4</option><option>A3</option>
+          </select>
+          <div class="error-msg" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="field"><label for="address">Delivery address</label><textarea id="address" name="Address" autocomplete="street-address" rows="3" required style="min-height:90px"></textarea><div class="error-msg" aria-live="polite"></div></div>
+      <div class="field"><label for="desc">Description <span class="hint">(what should the sketch look like?)</span></label><textarea id="desc" name="Description" minlength="10" required></textarea><div class="error-msg" aria-live="polite"></div></div>
+      <div class="field">
+        <label class="check"><input type="checkbox" name="Agreed to terms" value="yes" required data-error="Please agree to the terms to continue."> <span>I have read and agree to the <a href="tnc.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</span></label>
+        <div class="error-msg" aria-live="polite"></div>
+      </div>
+      <button class="btn" type="submit">Send booking request</button>
+    </form>
+    <aside class="side-card">
+      <h3>Good to know</h3>
+      <ul>
+        <li>Pencil sketch: <strong>&#8377;600</strong></li>
+        <li>Delivery: 1 week to 1 month</li>
+        <li>3 rounds of changes included</li>
+        <li>Pay 100% upfront or 50% / 50%</li>
+        <li>Use a clear, well-lit reference photo for the best result</li>
+      </ul>
+      <p style="margin-top:16px">Prefer Instagram? DM <a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">@anmols_.art</a>.</p>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand-line">Sketch Haven</div>
+        <p>Hand-drawn sketches, crafted with love, just for you.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="book.html">Book a Sketch</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="tnc.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey.</div>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+</body>
+</html>
