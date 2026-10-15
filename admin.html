@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self' https://api.github.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<title>Dashboard — Sketch Haven</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+<noscript><p class="noscript">The dashboard needs JavaScript. Please enable it and reload.</p></noscript>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- ============ First-time setup (per device) ============ -->
+<section id="view-setup" class="auth" hidden>
+  <form id="setup-form" class="auth-card" autocomplete="off" novalidate>
+    <img src="images/logo.png" alt="" width="44" height="44">
+    <h1>Set up the dashboard</h1>
+    <p class="muted">One-time setup on this device. Your GitHub token is encrypted with a password you choose and stored only in this browser.</p>
+
+    <details class="how">
+      <summary>How do I get a GitHub token?</summary>
+      <ol>
+        <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub &rarr; Fine-grained tokens &rarr; Generate new token</a>.</li>
+        <li>Name it <strong>Sketch Haven dashboard</strong> and pick an expiry (e.g. 1 year).</li>
+        <li>Under <em>Repository access</em> choose <strong>Only select repositories</strong> and pick <strong>SketchHaven.github.io</strong>.</li>
+        <li>Under <em>Permissions &rarr; Repository permissions</em> set <strong>Contents</strong> to <strong>Read and write</strong>.</li>
+        <li>Click <strong>Generate token</strong>, copy it, and paste it below.</li>
+      </ol>
+    </details>
+
+    <label for="s-repo">GitHub repository</label>
+    <input id="s-repo" type="text" value="SketchHaven/SketchHaven.github.io" spellcheck="false" autocapitalize="off">
+    <label for="s-token">GitHub token</label>
+    <input id="s-token" type="password" placeholder="github_pat_…" spellcheck="false" autocapitalize="off">
+    <label for="s-pass">Dashboard password <span class="muted">(min. 8 characters)</span></label>
+    <input id="s-pass" type="password" autocomplete="new-password">
+    <label for="s-pass2">Confirm password</label>
+    <input id="s-pass2" type="password" autocomplete="new-password">
+    <p class="error" id="setup-error" role="alert"></p>
+    <button class="btn primary" id="setup-btn" type="submit">Save &amp; continue</button>
+  </form>
+</section>
+
+<!-- ============ Login ============ -->
+<section id="view-login" class="auth" hidden>
+  <form id="login-form" class="auth-card" novalidate>
+    <img src="images/logo.png" alt="" width="44" height="44">
+    <h1>Artist login</h1>
+    <p class="muted">Enter your dashboard password to manage the site.</p>
+    <label for="l-pass">Password</label>
+    <input id="l-pass" type="password" autocomplete="current-password">
+    <p class="error" id="login-error" role="alert"></p>
+    <button class="btn primary" id="login-btn" type="submit">Log in</button>
+    <p class="small"><button type="button" class="link" id="reset-btn">Forgot password or changing token?</button></p>
+    <p class="small"><a href="index.html">&larr; Back to the website</a></p>
+  </form>
+</section>
+
+<!-- ============ App ============ -->
+<div id="view-app" hidden>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" target="_blank" rel="noopener"><img src="images/logo.png" alt="" width="30" height="30"><span>Sketch Haven <em>Dashboard</em></span></a>
+      <div class="top-actions">
+        <span class="pill" id="save-status">All changes published</span>
+        <button class="btn primary" id="btn-publish" type="button" disabled>Publish changes</button>
+        <button class="btn" id="btn-discard" type="button" disabled>Discard</button>
+        <a class="btn" href="index.html" target="_blank" rel="noopener">View site</a>
+        <button class="btn" id="btn-logout" type="button">Log out</button>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Dashboard sections">
+      <button role="tab" id="tab-gallery" aria-controls="panel-gallery" aria-selected="true">Gallery</button>
+      <button role="tab" id="tab-pricing" aria-controls="panel-pricing" aria-selected="false" tabindex="-1">Pricing</button>
+      <button role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" tabindex="-1">Site settings</button>
+      <button role="tab" id="tab-help" aria-controls="panel-help" aria-selected="false" tabindex="-1">Help</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Gallery -->
+    <section id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery">
+      <div class="card">
+        <h2>Add photos</h2>
+        <label class="dz" id="g-drop" for="g-files">
+          <input id="g-files" type="file" accept="image/*" multiple>
+          <strong>Click to choose photos</strong>
+          <span>or drag &amp; drop several at once. They&rsquo;re resized automatically, so big camera photos are fine.</span>
+        </label>
+        <p class="muted" id="g-progress" aria-live="polite"></p>
+      </div>
+      <div class="card">
+        <h2>Categories</h2>
+        <label for="cat-input">Categories used for the filter buttons <span class="muted">(comma separated)</span></label>
+        <input id="cat-input" type="text" placeholder="Graphite, Colour, Charcoal">
+      </div>
+      <div class="card">
+        <div class="row-between"><h2>Artworks <span class="muted" id="g-total"></span></h2><span class="muted">New photos appear first. Use the arrows to reorder.</span></div>
+        <div id="g-list" class="g-list"></div>
+        <p class="muted" id="g-empty" hidden>No artworks yet. Add some photos above.</p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="panel-pricing" role="tabpanel" aria-labelledby="tab-pricing" hidden>
+      <div class="card">
+        <div class="row-between"><h2>Sketch types &amp; prices</h2><button class="btn" id="p-add" type="button">+ Add a type</button></div>
+        <p class="muted">Active types are shown on the home page, the booking form and the terms page. Prices are in Indian Rupees (&#8377;).</p>
+        <div id="p-list" class="p-list"></div>
+      </div>
+      <div class="card">
+        <h2>Canvas sizes</h2>
+        <label for="sizes-input">Sizes offered in the booking form <span class="muted">(comma separated)</span></label>
+        <input id="sizes-input" type="text" placeholder="A5, A4, A3">
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" hidden>
+      <div class="card">
+        <h2>Commissions</h2>
+        <label class="check"><input id="st-open" type="checkbox"> <span>Accepting new commissions</span></label>
+        <label for="st-closed-msg">Message shown when closed</label>
+        <input id="st-closed-msg" type="text" maxlength="200">
+        <label for="st-delivery">Typical delivery time</label>
+        <input id="st-delivery" type="text" maxlength="60" placeholder="1 week to 1 month">
+      </div>
+      <div class="card">
+        <h2>Announcement banner</h2>
+        <label class="check"><input id="st-banner-on" type="checkbox"> <span>Show a banner at the top of every page</span></label>
+        <label for="st-banner-text">Banner text</label>
+        <input id="st-banner-text" type="text" maxlength="160" placeholder="Slots open for November!">
+      </div>
+      <div class="card">
+        <h2>Home page</h2>
+        <label for="st-h1">Heading (first line)</label>
+        <input id="st-h1" type="text" maxlength="60">
+        <label for="st-h2">Heading (typed second line)</label>
+        <input id="st-h2" type="text" maxlength="60">
+        <label for="st-htext">Intro text</label>
+        <textarea id="st-htext" rows="3" maxlength="300"></textarea>
+      </div>
+      <div class="card">
+        <h2>Social links</h2>
+        <label for="st-ig">Instagram link</label>
+        <input id="st-ig" type="url" placeholder="https://www.instagram.com/yourname/">
+        <label for="st-yt">YouTube link</label>
+        <input id="st-yt" type="url" placeholder="https://youtube.com/@yourchannel">
+      </div>
+      <div class="card">
+        <h2>About page</h2>
+        <label for="st-about">Your story <span class="muted">(separate paragraphs with a blank line)</span></label>
+        <textarea id="st-about" rows="12"></textarea>
+      </div>
+    </section>
+
+    <!-- Help -->
+    <section id="panel-help" role="tabpanel" aria-labelledby="tab-help" hidden>
+      <div class="card prose">
+        <h2>How this dashboard works</h2>
+        <p>Your website is a static site hosted on GitHub Pages. This dashboard edits one data file (<code>data/site.json</code>) and your uploaded photos by committing them to your GitHub repository. The website reads that file every time someone visits.</p>
+        <h3>Publishing</h3>
+        <p>Nothing changes on the live site until you press <strong>Publish changes</strong>. After publishing, GitHub Pages takes about <strong>1&ndash;2 minutes</strong> to update, so refresh the site after a short wait.</p>
+        <h3>Security</h3>
+        <ul>
+          <li>Only someone with your GitHub token can change the site. The password here just locks the token on this device.</li>
+          <li>The token is stored encrypted in this browser. Use <em>Forgot password</em> on the login screen to wipe it and set up again.</li>
+          <li>If your token ever leaks, delete it in GitHub &rarr; Settings &rarr; Developer settings and create a new one.</li>
+          <li>Tokens expire. If publishing says the token was rejected, create a new one and set up again.</li>
+        </ul>
+        <h3>Tips</h3>
+        <ul>
+          <li>Every publish is a normal Git commit, so you can always undo a mistake from the repository&rsquo;s history.</li>
+          <li>Photos are saved as optimised JPEGs, so the site stays fast.</li>
+          <li>You can also add the Instagram username of a customer later: it arrives in the booking email.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Publish progress -->
+<div id="pub-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="pub-title" hidden>
+  <div class="modal-card">
+    <h2 id="pub-title">Publishing…</h2>
+    <ul id="pub-log" class="log"></ul>
+    <div class="modal-actions"><button class="btn primary" id="pub-close" type="button" hidden>Close</button></div>
+  </div>
+</div>
+
+<script src="admin.js" defer></script>
+</body>
+</html>

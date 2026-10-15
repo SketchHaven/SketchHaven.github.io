@@ -5,23 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book a Sketch — Sketch Haven</title>
 <meta name="description" content="Request a custom hand-drawn sketch. Upload your reference photo, choose a canvas size and tell us what you want.">
-<meta name="theme-color" content="#f7f3ec">
+<meta name="theme-color" content="#fbf8f2">
 <link rel="canonical" href="https://sketchhaven.github.io/book.html">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <meta property="og:title" content="Book a Sketch — Sketch Haven">
 <meta property="og:description" content="Request a custom hand-drawn sketch. Upload your reference photo, choose a canvas size and tell us what you want.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sketchhaven.github.io/book.html">
-<meta property="og:image" content="https://sketchhaven.github.io/images/art-1-thumb.jpg">
+<meta property="og:image" content="https://sketchhaven.github.io/images/art-3-thumb.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<script>document.documentElement.className+=" js"</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site-header">
+  <div class="site-banner" id="site-banner" role="status" hidden><span></span></div>
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="Sketch Haven home"><img src="images/logo.png" alt="" width="36" height="36"><span>Sketch Haven</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span class="bars"></span></button>
@@ -50,51 +53,67 @@
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="Price shown" id="price-shown" value="₹600">
+      <input type="hidden" name="Inspired by" id="ref-field" value="">
+      <div class="notice warn" id="commission-closed" role="status" hidden><span></span></div>
+      <div class="notice info" id="ref-note" role="status" hidden><span></span></div>
       <div class="notice error form-notice" role="alert" hidden></div>
-
-      <div class="field">
-        <span class="label" id="photo-label">Reference photo <span class="hint">(the photo you want drawn &middot; max 5 MB)</span></span>
-        <label class="dropzone" aria-labelledby="photo-label" style="position:relative">
-          <input type="file" name="attachment" accept="image/*" required>
-          <span class="dz-body"><strong>Click to choose an image</strong><span>or drag &amp; drop it here</span></span>
-        </label>
-        <button type="button" class="remove-file" hidden>Remove photo</button>
-        <div class="error-msg" aria-live="polite"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="field"><label for="name">Name</label><input id="name" type="text" name="Name" autocomplete="name" required><div class="error-msg" aria-live="polite"></div></div>
-        <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required><div class="error-msg" aria-live="polite"></div></div>
-      </div>
-      <div class="field-row">
-        <div class="field"><label for="phone">Phone <span class="hint">(optional)</span></label><input id="phone" type="tel" name="Phone" autocomplete="tel"></div>
+      <fieldset id="book-fieldset">
         <div class="field">
-          <label for="size">Canvas size</label>
-          <select id="size" name="Canvas size" required>
-            <option value="">Choose a size</option>
-            <option>A5</option><option>A4</option><option>A3</option>
-          </select>
+          <span class="label" id="photo-label">Reference photo <span class="hint">(the photo you want drawn &middot; max 5 MB)</span></span>
+          <label class="dropzone" aria-labelledby="photo-label">
+            <input type="file" name="attachment" accept="image/*" required>
+            <span class="dz-body"><strong>Click to choose an image</strong><span>or drag &amp; drop it here</span></span>
+          </label>
+          <button type="button" class="remove-file" hidden>Remove photo</button>
           <div class="error-msg" aria-live="polite"></div>
         </div>
-      </div>
-      <div class="field"><label for="address">Delivery address</label><textarea id="address" name="Address" autocomplete="street-address" rows="3" required style="min-height:90px"></textarea><div class="error-msg" aria-live="polite"></div></div>
-      <div class="field"><label for="desc">Description <span class="hint">(what should the sketch look like?)</span></label><textarea id="desc" name="Description" minlength="10" required></textarea><div class="error-msg" aria-live="polite"></div></div>
-      <div class="field">
-        <label class="check"><input type="checkbox" name="Agreed to terms" value="yes" required data-error="Please agree to the terms to continue."> <span>I have read and agree to the <a href="tnc.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</span></label>
-        <div class="error-msg" aria-live="polite"></div>
-      </div>
-      <button class="btn" type="submit">Send booking request</button>
+
+        <div class="field-row">
+          <div class="field"><label for="name">Name</label><input id="name" type="text" name="Name" autocomplete="name" required><div class="error-msg" aria-live="polite"></div></div>
+          <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required><div class="error-msg" aria-live="polite"></div></div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="ig">Instagram username <span class="hint">(optional)</span></label>
+            <div class="input-prefix"><span aria-hidden="true">@</span><input id="ig" type="text" name="Instagram" data-kind="instagram" placeholder="yourname" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="60" aria-describedby="ig-hint"></div>
+            <div class="hint" id="ig-hint" style="margin-top:4px">So I can send work-in-progress updates by DM.</div>
+            <div class="error-msg" aria-live="polite"></div>
+          </div>
+          <div class="field"><label for="phone">Phone <span class="hint">(optional)</span></label><input id="phone" type="tel" name="Phone" autocomplete="tel"></div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="sketch-type">Sketch type</label>
+            <select id="sketch-type" name="Sketch type" required><option value="">Choose a sketch type</option><option value="Pencil sketch" data-price="600" data-id="pencil">Pencil sketch — ₹600</option></select>
+            <div class="error-msg" aria-live="polite"></div>
+          </div>
+          <div class="field">
+            <label for="size">Canvas size</label>
+            <select id="size" name="Canvas size" required><option value="">Choose a size</option><option>A5</option><option>A4</option><option>A3</option></select>
+            <div class="error-msg" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="price-preview" id="price-preview" aria-live="polite" hidden>Starting price: <strong></strong> <span class="hint">&middot; the final price is confirmed by email.</span></div>
+        <div class="field"><label for="address">Delivery address</label><textarea id="address" name="Address" autocomplete="street-address" rows="3" required style="min-height:90px"></textarea><div class="error-msg" aria-live="polite"></div></div>
+        <div class="field"><label for="desc">Description <span class="hint">(what should the sketch look like?)</span></label><textarea id="desc" name="Description" minlength="10" required></textarea><div class="error-msg" aria-live="polite"></div></div>
+        <div class="field">
+          <label class="check"><input type="checkbox" name="Agreed to terms" value="yes" required data-error="Please agree to the terms to continue."> <span>I have read and agree to the <a href="tnc.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</span></label>
+          <div class="error-msg" aria-live="polite"></div>
+        </div>
+      </fieldset>
+      <button class="btn" id="book-submit" type="submit">Send booking request</button>
     </form>
     <aside class="side-card">
       <h3>Good to know</h3>
       <ul>
-        <li>Pencil sketch: <strong>&#8377;600</strong></li>
-        <li>Delivery: 1 week to 1 month</li>
+        <li>Sketches from <strong data-price-from>₹600</strong></li>
+        <li>Delivery: <span data-delivery>1 week to 1 month</span></li>
         <li>3 rounds of changes included</li>
         <li>Pay 100% upfront or 50% / 50%</li>
         <li>Use a clear, well-lit reference photo for the best result</li>
       </ul>
-      <p style="margin-top:16px">Prefer Instagram? DM <a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">@anmols_.art</a>.</p>
+      <p style="margin-top:16px">Prefer Instagram? DM <a href="https://www.instagram.com/anmols_.art/" data-social="instagram" target="_blank" rel="noopener noreferrer"><span data-handle>@anmols_.art</span></a>.</p>
     </aside>
   </div>
 </section>
@@ -120,12 +139,12 @@
       <div>
         <h3>Follow</h3>
         <ul>
-          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          <li><a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" data-social="youtube" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/anmols_.art/" data-social="instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         </ul>
       </div>
     </div>
-    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey.</div>
+    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey. <a href="admin.html">Artist login</a></div>
   </div>
 </footer>
 <script src="main.js" defer></script>

@@ -3,25 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sketch Haven — Custom Hand-Drawn Sketches & Portraits</title>
+<title>Sketch Haven — Custom Hand-Drawn Sketches &amp; Portraits</title>
 <meta name="description" content="Commission a custom hand-drawn sketch or portrait. Send a reference photo and get a one-of-a-kind artwork by Anmol Dubey.">
-<meta name="theme-color" content="#f7f3ec">
+<meta name="theme-color" content="#fbf8f2">
 <link rel="canonical" href="https://sketchhaven.github.io/">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<meta property="og:title" content="Sketch Haven — Custom Hand-Drawn Sketches & Portraits">
+<meta property="og:title" content="Sketch Haven — Custom Hand-Drawn Sketches &amp; Portraits">
 <meta property="og:description" content="Commission a custom hand-drawn sketch or portrait. Send a reference photo and get a one-of-a-kind artwork by Anmol Dubey.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sketchhaven.github.io/">
-<meta property="og:image" content="https://sketchhaven.github.io/images/art-1-thumb.jpg">
+<meta property="og:image" content="https://sketchhaven.github.io/images/art-3-thumb.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<script>document.documentElement.className+=" js"</script>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home">
 <a class="skip-link" href="#main">Skip to content</a>
+<canvas id="petals" aria-hidden="true"></canvas>
 <header class="site-header">
+  <div class="site-banner" id="site-banner" role="status" hidden><span></span></div>
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="Sketch Haven home"><img src="images/logo.png" alt="" width="36" height="36"><span>Sketch Haven</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span class="bars"></span></button>
@@ -38,19 +41,25 @@
 <main id="main">
 
 <section class="hero">
+  <div class="hero-flora" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Commission sketches &amp; portraits</span>
-      <h1>Crafted with love, <span class="typing" data-typing="just for you."></span><noscript>just for you.</noscript></h1>
-      <p class="lead">Discover Sketch Haven's unique hand-drawn creations. Send a photo, tell your story, and receive a one-of-a-kind sketch drawn by hand.</p>
+      <span class="eyebrow">Hand-drawn sketches &amp; portraits</span>
+      <h1><span data-hero-line1>Crafted with love,</span> <span class="typing hl" data-typing="just for you.">just for you.</span></h1>
+      <p class="lead" data-hero-text>Discover Sketch Haven&#x27;s unique hand-drawn creations. Send a photo, tell your story, and receive a one-of-a-kind sketch drawn by hand.</p>
       <div class="btn-row">
         <a class="btn" href="book.html">Book a Sketch</a>
-        <a class="btn ghost" href="gallery.html">See the Gallery</a>
+        <a class="btn ghost" href="gallery.html">Explore the Gallery</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-price-from>₹600</strong>sketches from</div>
+        <div><strong data-delivery>1 week to 1 month</strong>typical delivery</div>
+        <div><strong>3 rounds</strong>of changes included</div>
       </div>
     </div>
     <div class="hero-art">
-      <img src="images/art-3-thumb.jpg" alt="Detailed graphite portrait in a high collar" width="503" height="720" fetchpriority="high">
-      <span class="tag">Pencil sketch from &#8377;600</span>
+      <figure class="frame f-a" id="hero-art-a"><img src="images/art-3-thumb.jpg" alt="The High Collar" width="503" height="720" fetchpriority="high"><figcaption>The High Collar</figcaption></figure>
+      <figure class="frame f-b" id="hero-art-b"><img src="images/art-1-thumb.jpg" alt="Headphones" width="513" height="720"><figcaption>Headphones</figcaption></figure>
     </div>
   </div>
 </section>
@@ -58,44 +67,63 @@
 <section class="section alt">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">How it works</span>
-      <h2>From your photo to a finished sketch</h2>
-      <p>Commissioning a sketch is simple. You stay involved from the first line to the last.</p>
+      <span class="eyebrow">Selected work</span>
+      <h2>Drawn by hand, <span class="hl">one line at a time</span></h2>
+      <p>A few favourites from the sketchbook. Tap any piece to see it up close.</p>
     </div>
-    <div class="grid cols-3">
-      <div class="card reveal"><span class="num">1</span><h3>Send your reference</h3><p>Fill in the booking form with a clear photo, your preferred canvas size (A5, A4 or A3) and any details you want.</p></div>
-      <div class="card reveal"><span class="num">2</span><h3>Confirm &amp; review</h3><p>Once I agree to a slot I will ask for payment. While drawing, I share work-in-progress reviews so it comes out just right.</p></div>
-      <div class="card reveal"><span class="num">3</span><h3>Receive your artwork</h3><p>Delivery usually takes 1 week to 1 month, depending on complexity. You get 3 rounds of changes included.</p></div>
+    <div class="wall" id="featured-wall">
+      <a class="frame reveal" href="gallery.html#art-3" style="--ar:1117 / 1600"><img src="images/art-3-thumb.jpg" alt="The High Collar" loading="lazy" width="480" height="688"><figcaption>The High Collar</figcaption></a>
+      <a class="frame reveal" href="gallery.html#art-1" style="--ar:1140 / 1600"><img src="images/art-1-thumb.jpg" alt="Headphones" loading="lazy" width="480" height="674"><figcaption>Headphones</figcaption></a>
+      <a class="frame reveal" href="gallery.html#art-4" style="--ar:1172 / 1600"><img src="images/art-4-thumb.jpg" alt="The Moustache" loading="lazy" width="480" height="655"><figcaption>The Moustache</figcaption></a>
+      <a class="frame reveal" href="gallery.html#art-5" style="--ar:1177 / 1600"><img src="images/art-5-thumb.jpg" alt="Quiet Gaze" loading="lazy" width="480" height="653"><figcaption>Quiet Gaze</figcaption></a>
+      <a class="frame reveal" href="gallery.html#art-2" style="--ar:1108 / 1600"><img src="images/art-2-thumb.jpg" alt="Water Study" loading="lazy" width="480" height="693"><figcaption>Water Study</figcaption></a>
+      <a class="frame reveal" href="gallery.html#art-6" style="--ar:576 / 732"><img src="images/art-6-thumb.jpg" alt="Anime in Colour" loading="lazy" width="480" height="610"><figcaption>Anime in Colour</figcaption></a>
     </div>
-    <div class="price-box reveal" style="margin-top:28px">
-      <div><span class="amount">&#8377;600</span><small>Pencil sketch &middot; more mediums coming soon</small></div>
-      <a class="btn" href="book.html">Start your commission</a>
+    <p style="margin-top:12px"><a class="btn ghost" href="gallery.html">View the full gallery</a></p>
+  </div>
+</section>
+
+<section class="artist-band section">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Meet the artist</span>
+      <h2>Hi, I&rsquo;m Anmol.</h2>
+      <p data-artist-blurb>Sketch Haven is a one-of-a-kind studio dedicated to bringing you carefully crafted, hand-drawn sketches. As the artist and owner, I am thrilled to share my passion for art with you and give you a way to commission a unique piece for your collection or as a gift.</p>
+      <div class="signature" aria-hidden="true">Anmol Dubey</div>
+      <p style="margin-top:18px"><a class="btn light" href="about.html">Read my story</a></p>
     </div>
+    <figure class="frame reveal"><img src="images/art-4-thumb.jpg" alt="Graphite portrait signed by the artist" loading="lazy" width="527" height="720"><figcaption>Every piece is signed by hand.</figcaption></figure>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Recent work</span>
-      <h2>A glimpse of the gallery</h2>
-      <p>Graphite, colour pencil and more &mdash; every piece drawn by hand.</p>
+      <span class="eyebrow">Commissions</span>
+      <h2>How to get <span class="hl">your own sketch</span></h2>
+      <p>Commissioning a piece is simple, and you stay involved from the first line to the last.</p>
     </div>
-    <div class="grid cols-3">
-      <a class="reveal" href="gallery.html"><img src="images/art-1-thumb.jpg" alt="Graphite portrait of a person adjusting headphones" loading="lazy" style="border-radius:10px;box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover;width:100%"></a>
-      <a class="reveal" href="gallery.html"><img src="images/art-4-thumb.jpg" alt="Graphite portrait with a dramatic moustache" loading="lazy" style="border-radius:10px;box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover;width:100%"></a>
-      <a class="reveal" href="gallery.html"><img src="images/art-6-thumb.jpg" alt="Anime character in colour pencil" loading="lazy" style="border-radius:10px;box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover;width:100%"></a>
+    <div class="grid cols-3" style="margin-bottom:36px">
+      <div class="card reveal"><span class="num">1</span><h3>Send your reference</h3><p>Fill in the booking form with a clear photo, your preferred canvas size and any details you want.</p></div>
+      <div class="card reveal"><span class="num">2</span><h3>Confirm &amp; review</h3><p>Once I agree to a slot I will ask for payment. While drawing, I share work-in-progress reviews so it comes out just right.</p></div>
+      <div class="card reveal"><span class="num">3</span><h3>Receive your artwork</h3><p>Delivery usually takes <span data-delivery>1 week to 1 month</span>, depending on complexity. Three rounds of changes are included.</p></div>
     </div>
-    <p style="margin-top:28px"><a class="btn ghost" href="gallery.html">View full gallery</a></p>
+    <div class="grid cols-3" id="pricing-grid">
+      <div class="card price-card reveal"><h3>Pencil sketch</h3><div class="amount">₹600<small> onwards</small></div><p>A hand-drawn pencil portrait made from your reference photo. Three rounds of changes included.</p><a class="btn small" href="book.html?type=pencil">Book this</a></div>
+    </div>
+    <p class="price-note">More art mediums will be added soon. Final price is confirmed by email before you pay anything.</p>
   </div>
 </section>
 
-<section class="section alt">
+<section class="section" style="padding-top:0">
   <div class="container">
-    <div class="grid cols-3">
-      <a class="card link-card reveal" href="book.html"><div class="icon" aria-hidden="true">&#9998;</div><h3>Book a Sketch</h3><p>Request a personalised sketch based on your photo and ideas.</p><span class="more">Book now &rarr;</span></a>
-      <a class="card link-card reveal" href="contact.html"><div class="icon" aria-hidden="true">&#9993;</div><h3>Contact</h3><p>Questions, feedback or suggestions? Send a message or DM on Instagram.</p><span class="more">Get in touch &rarr;</span></a>
-      <a class="card link-card reveal" href="tnc.html"><div class="icon" aria-hidden="true">&#128220;</div><h3>Terms &amp; Conditions</h3><p>Payment, revisions, delivery, copyright and refunds explained clearly.</p><span class="more">Read the terms &rarr;</span></a>
+    <div class="cta-band reveal">
+      <h2>Follow the process on Instagram</h2>
+      <p>Work-in-progress shots, finished pieces and slot announcements are all posted at <strong data-handle>@anmols_.art</strong>.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn" href="https://www.instagram.com/anmols_.art/" data-social="instagram" target="_blank" rel="noopener noreferrer">Visit Instagram</a>
+        <a class="btn ghost" href="contact.html">Send a message</a>
+      </div>
     </div>
   </div>
 </section>
@@ -121,14 +149,15 @@
       <div>
         <h3>Follow</h3>
         <ul>
-          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          <li><a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" data-social="youtube" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/anmols_.art/" data-social="instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         </ul>
       </div>
     </div>
-    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey.</div>
+    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey. <a href="admin.html">Artist login</a></div>
   </div>
 </footer>
 <script src="main.js" defer></script>
+<script src="flowers.js" defer></script>
 </body>
 </html>

@@ -5,23 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gallery — Sketch Haven</title>
 <meta name="description" content="Browse hand-drawn graphite and colour pencil portraits by Anmol Dubey.">
-<meta name="theme-color" content="#f7f3ec">
+<meta name="theme-color" content="#fbf8f2">
 <link rel="canonical" href="https://sketchhaven.github.io/gallery.html">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <meta property="og:title" content="Gallery — Sketch Haven">
 <meta property="og:description" content="Browse hand-drawn graphite and colour pencil portraits by Anmol Dubey.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sketchhaven.github.io/gallery.html">
-<meta property="og:image" content="https://sketchhaven.github.io/images/art-1-thumb.jpg">
+<meta property="og:image" content="https://sketchhaven.github.io/images/art-3-thumb.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<script>document.documentElement.className+=" js"</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <header class="site-header">
+  <div class="site-banner" id="site-banner" role="status" hidden><span></span></div>
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="Sketch Haven home"><img src="images/logo.png" alt="" width="36" height="36"><span>Sketch Haven</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span class="bars"></span></button>
@@ -39,38 +42,25 @@
 
 <div class="container page-title">
   <span class="eyebrow">Gallery</span>
-  <h1>Hand-drawn work</h1>
-  <p>Tap any sketch to view it larger. Use the arrow keys or swipe to move between pieces.</p>
+  <h1>The sketchbook</h1>
+  <p>Tap any sketch to view it larger. Use the arrow keys or swipe to move between pieces, and zoom in to see the pencil work.</p>
 </div>
-<section class="section" style="padding-top:24px">
+<section class="section" id="gallery-app" style="padding-top:24px">
   <div class="container">
-    <div class="gallery-grid">
-      <button type="button" class="gallery-item" data-full="images/art-1.jpg" data-alt="Graphite portrait of a person adjusting headphones">
-        <img src="images/art-1-thumb.jpg" alt="Graphite portrait of a person adjusting headphones" loading="eager">
-        <span class="cap">Graphite portrait of a person adjusting headphones</span>
-      </button>
-      <button type="button" class="gallery-item" data-full="images/art-2.jpg" data-alt="Graphite study of a child with a bucket and running water">
-        <img src="images/art-2-thumb.jpg" alt="Graphite study of a child with a bucket and running water" loading="eager">
-        <span class="cap">Graphite study of a child with a bucket and running water</span>
-      </button>
-      <button type="button" class="gallery-item" data-full="images/art-3.jpg" data-alt="Detailed graphite portrait in a high collar">
-        <img src="images/art-3-thumb.jpg" alt="Detailed graphite portrait in a high collar" loading="eager">
-        <span class="cap">Detailed graphite portrait in a high collar</span>
-      </button>
-      <button type="button" class="gallery-item" data-full="images/art-4.jpg" data-alt="Graphite portrait with a dramatic moustache">
-        <img src="images/art-4-thumb.jpg" alt="Graphite portrait with a dramatic moustache" loading="lazy">
-        <span class="cap">Graphite portrait with a dramatic moustache</span>
-      </button>
-      <button type="button" class="gallery-item" data-full="images/art-5.jpg" data-alt="Graphite portrait of a smiling man">
-        <img src="images/art-5-thumb.jpg" alt="Graphite portrait of a smiling man" loading="lazy">
-        <span class="cap">Graphite portrait of a smiling man</span>
-      </button>
-      <button type="button" class="gallery-item" data-full="images/art-6.jpg" data-alt="Anime character in colour pencil">
-        <img src="images/art-6-thumb.jpg" alt="Anime character in colour pencil" loading="lazy">
-        <span class="cap">Anime character in colour pencil</span>
-      </button>
+    <div class="g-toolbar">
+      <div class="chips" id="g-chips" role="group" aria-label="Filter artworks by category"></div>
+      <span class="g-count" id="g-count" aria-live="polite"></span>
     </div>
-    <div class="callout" style="margin-top:32px">Like what you see? <a href="book.html">Book your own custom sketch</a> or follow along on <a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">Instagram</a> for new work.</div>
+    <div class="gallery-grid" id="g-grid">
+      <button type="button" class="g-item" data-id="art-3" data-title="The High Collar" data-caption="Detailed graphite portrait." data-cat="Graphite" data-full="images/art-3.jpg"><img src="images/art-3-thumb.jpg" alt="The High Collar — Detailed graphite portrait." width="480" height="688" loading="lazy"><span class="g-cap"><strong>The High Collar</strong><small>Graphite</small></span></button>
+      <button type="button" class="g-item" data-id="art-1" data-title="Headphones" data-caption="Graphite portrait with fine hatching." data-cat="Graphite" data-full="images/art-1.jpg"><img src="images/art-1-thumb.jpg" alt="Headphones — Graphite portrait with fine hatching." width="480" height="674" loading="lazy"><span class="g-cap"><strong>Headphones</strong><small>Graphite</small></span></button>
+      <button type="button" class="g-item" data-id="art-4" data-title="The Moustache" data-caption="Graphite portrait." data-cat="Graphite" data-full="images/art-4.jpg"><img src="images/art-4-thumb.jpg" alt="The Moustache — Graphite portrait." width="480" height="655" loading="lazy"><span class="g-cap"><strong>The Moustache</strong><small>Graphite</small></span></button>
+      <button type="button" class="g-item" data-id="art-5" data-title="Quiet Gaze" data-caption="Graphite portrait." data-cat="Graphite" data-full="images/art-5.jpg"><img src="images/art-5-thumb.jpg" alt="Quiet Gaze — Graphite portrait." width="480" height="653" loading="lazy"><span class="g-cap"><strong>Quiet Gaze</strong><small>Graphite</small></span></button>
+      <button type="button" class="g-item" data-id="art-2" data-title="Water Study" data-caption="Graphite study of a child with running water." data-cat="Graphite" data-full="images/art-2.jpg"><img src="images/art-2-thumb.jpg" alt="Water Study — Graphite study of a child with running water." width="480" height="693" loading="lazy"><span class="g-cap"><strong>Water Study</strong><small>Graphite</small></span></button>
+      <button type="button" class="g-item" data-id="art-6" data-title="Anime in Colour" data-caption="Colour pencil sketch of an anime character." data-cat="Colour" data-full="images/art-6.jpg"><img src="images/art-6-thumb.jpg" alt="Anime in Colour — Colour pencil sketch of an anime character." width="480" height="610" loading="lazy"><span class="g-cap"><strong>Anime in Colour</strong><small>Colour</small></span></button>
+    </div>
+    <p class="g-empty" id="g-empty" hidden>No artworks here yet &mdash; check back soon.</p>
+    <div class="callout" style="margin-top:32px">Like what you see? <a href="book.html">Book your own custom sketch</a> or follow along on <a href="https://www.instagram.com/anmols_.art/" data-social="instagram" target="_blank" rel="noopener noreferrer">Instagram</a> for new work.</div>
   </div>
 </section>
 </main>
@@ -95,12 +85,12 @@
       <div>
         <h3>Follow</h3>
         <ul>
-          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          <li><a href="https://www.instagram.com/anmols_.art/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://youtube.com/@AnmolsArt-ox6gl" data-social="youtube" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/anmols_.art/" data-social="instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         </ul>
       </div>
     </div>
-    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey.</div>
+    <div class="copyright">&copy; <span id="year">2026</span> Sketch Haven. All artwork &copy; Anmol Dubey. <a href="admin.html">Artist login</a></div>
   </div>
 </footer>
 <script src="main.js" defer></script>
