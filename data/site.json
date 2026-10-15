@@ -1,1 +1,118 @@
-
+{
+  "version": 1,
+  "settings": {
+    "heroLine1": "Crafted with love,",
+    "heroLine2": "just for you.",
+    "heroText": "Discover Sketch Haven's unique hand-drawn creations. Send a photo, tell your story, and receive a one-of-a-kind sketch drawn by hand.",
+    "banner": {
+      "enabled": false,
+      "text": ""
+    },
+    "commissions": {
+      "open": true,
+      "message": "Commissions are currently closed. Follow Instagram for updates on when slots reopen."
+    },
+    "deliveryTime": "1 week to 1 month",
+    "instagram": "https://www.instagram.com/anmols_.art/",
+    "youtube": "https://youtube.com/@AnmolsArt-ox6gl",
+    "sizes": [
+      "A5",
+      "A4",
+      "A3"
+    ],
+    "about": [
+      "Sketch Haven is a one-of-a-kind studio dedicated to bringing you carefully crafted, hand-drawn sketches. As the artist and owner, I am thrilled to share my passion for art with you and give you a way to commission a unique piece for your collection or as a gift.",
+      "My love for art and sketching began at an early age, and over the years it has grown into a deep appreciation for the beauty and creativity that sketching offers. Each sketch tells a story, captures a moment, or expresses emotions in a way that words cannot. That connection is what inspired me to create Sketch Haven.",
+      "I work personally with every customer, so your experience reflects my own taste and style. From intricate pencil drawings to bold colour work, each piece is made to meet a high standard of quality, originality and artistic expression.",
+      "I believe that art should be accessible to everyone. Whether you are a seasoned art collector or a first-time buyer, there is something for you at Sketch Haven, and I take pride in providing excellent, friendly service from your first message to delivery.",
+      "While I work on your commission you will see work-in-progress updates, so you can feel confident that the finished sketch is a true reflection of what you imagined."
+    ]
+  },
+  "pricing": [
+    {
+      "id": "pencil",
+      "name": "Pencil sketch",
+      "price": 600,
+      "description": "A hand-drawn pencil portrait made from your reference photo. Three rounds of changes included.",
+      "active": true
+    }
+  ],
+  "categories": [
+    "Graphite",
+    "Colour"
+  ],
+  "gallery": [
+    {
+      "id": "art-3",
+      "title": "The High Collar",
+      "caption": "Detailed graphite portrait.",
+      "category": "Graphite",
+      "full": "images/art-3.jpg",
+      "thumb": "images/art-3-thumb.jpg",
+      "w": 1117,
+      "h": 1600,
+      "featured": true,
+      "added": "2023-08-01"
+    },
+    {
+      "id": "art-1",
+      "title": "Headphones",
+      "caption": "Graphite portrait with fine hatching.",
+      "category": "Graphite",
+      "full": "images/art-1.jpg",
+      "thumb": "images/art-1-thumb.jpg",
+      "w": 1140,
+      "h": 1600,
+      "featured": true,
+      "added": "2023-08-01"
+    },
+    {
+      "id": "art-4",
+      "title": "The Moustache",
+      "caption": "Graphite portrait.",
+      "category": "Graphite",
+      "full": "images/art-4.jpg",
+      "thumb": "images/art-4-thumb.jpg",
+      "w": 1172,
+      "h": 1600,
+      "featured": true,
+      "added": "2023-08-01"
+    },
+    {
+      "id": "art-5",
+      "title": "Quiet Gaze",
+      "caption": "Graphite portrait.",
+      "category": "Graphite",
+      "full": "images/art-5.jpg",
+      "thumb": "images/art-5-thumb.jpg",
+      "w": 1177,
+      "h": 1600,
+      "featured": true,
+      "added": "2023-08-01"
+    },
+    {
+      "id": "art-2",
+      "title": "Water Study",
+      "caption": "Graphite study of a child with running water.",
+      "category": "Graphite",
+      "full": "images/art-2.jpg",
+      "thumb": "images/art-2-thumb.jpg",
+      "w": 1108,
+      "h": 1600,
+      "featured": true,
+      "added": "2023-08-01"
+    },
+    {
+      "id": "art-6",
+      "title": "Anime in Colour",
+      "caption": "Colour pencil sketch of an anime character.",
+      "category": "Colour",
+      "full": "images/art-6.jpg",
+      "thumb": "images/art-6-thumb.jpg",
+      "w": 576,
+      "h": 732,
+      "featured": true,
+      "added": "2023-08-01"
+    }
+  ]
+}
