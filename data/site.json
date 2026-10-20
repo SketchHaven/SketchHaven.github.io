@@ -43,6 +43,18 @@
   ],
   "gallery": [
     {
+      "id": "amvg7jojinze8",
+      "title": "Tanjiro Kamado",
+      "caption": "From Demon slayer",
+      "category": "Colour",
+      "full": "images/gallery/amvg7jojinze8.jpg",
+      "thumb": "images/gallery/amvg7jojinze8-thumb.jpg",
+      "w": 1080,
+      "h": 1080,
+      "featured": true,
+      "added": "2026-10-20"
+    },
+    {
       "id": "art-3",
       "title": "The High Collar",
       "caption": "Detailed graphite portrait.",
