@@ -1,3 +1,5 @@
+# Sketch Haven - all public pages may be crawled.
 User-agent: *
 Allow: /
+
 Sitemap: https://sketchhaven.github.io/sitemap.xml

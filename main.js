@@ -62,8 +62,9 @@
     });
   }
 
+  // The site was first made in 2023, so the footer shows a range: 2023–<this year>.
   var yr = $("#year");
-  if (yr) yr.textContent = new Date().getFullYear();
+  if (yr) { var now = new Date().getFullYear(); yr.textContent = now > 2023 ? "2023\u2013" + now : "2023"; }
 
   /* ---------- Scroll reveal ---------- */
   var io = null;
@@ -79,20 +80,15 @@
 
   /* ---------- Typing effect (home) ---------- */
   var typingEl = $("[data-typing]");
-  var typingTimer = null;
   function startTyping(text) {
     if (!typingEl) return;
-    clearTimeout(typingTimer);
     typingEl.setAttribute("data-typing", text);
-    if (reduceMotion) { typingEl.textContent = text; return; }
-    typingEl.textContent = "";
-    var i = 0;
-    (function tick() {
-      typingEl.textContent = text.slice(0, ++i);
-      if (i < text.length) typingTimer = setTimeout(tick, 45);
-    })();
+    typingEl.textContent = text;                 // the real heading text is always in the page
+    typingEl.style.setProperty("--n", String(Math.max(1, text.length)));
+    typingEl.style.animation = "none";           // restart the CSS reveal
+    void typingEl.offsetWidth;
+    typingEl.style.animation = "";
   }
-  if (typingEl) startTyping(typingEl.getAttribute("data-typing") || "");
 
   /* ---------- Site data ---------- */
   var DATA = null;
@@ -184,6 +180,40 @@
         ]));
       });
       observeReveals();
+    },
+    // Keep the JSON-LD structured data in step with what the dashboard published.
+    ld: function (d) {
+      var s = d.settings || {};
+      function abs(p) { try { return new URL(p, document.baseURI).href; } catch (e) { return p; } }
+      function edit(key, fn) {
+        var el = $('script[type="application/ld+json"][data-ld="' + key + '"]');
+        if (!el) return;
+        try { var o = JSON.parse(el.textContent); fn(o); el.textContent = JSON.stringify(o); } catch (e) {}
+      }
+      var sameAs = [safeSocial(s.instagram, "instagram"), safeSocial(s.youtube, "youtube")].filter(Boolean);
+      edit("site", function (o) {
+        (o["@graph"] || []).forEach(function (n) { if (n.sameAs && sameAs.length) n.sameAs = sameAs; });
+      });
+      edit("about", function (o) { if (o.mainEntity && sameAs.length) o.mainEntity.sameAs = sameAs; });
+      edit("gallery", function (o) {
+        o.associatedMedia = (d.gallery || []).map(function (it) {
+          var m = { "@type": "ImageObject", contentUrl: abs(it.full), thumbnailUrl: abs(it.thumb || it.full), name: it.title || "Artwork",
+            encodingFormat: "image/jpeg", creator: { "@type": "Person", name: "Anmol Dubey" },
+            creditText: "Anmol Dubey / Sketch Haven", copyrightNotice: "\u00a9 Anmol Dubey", acquireLicensePage: abs("tnc.html#copyright") };
+          if (it.caption) m.caption = it.caption;
+          if (it.w && it.h) { m.width = it.w; m.height = it.h; }
+          return m;
+        });
+      });
+      edit("service", function (o) {
+        var open = !(s.commissions && s.commissions.open === false);
+        o.hasOfferCatalog = o.hasOfferCatalog || { "@type": "OfferCatalog", name: "Sketch types" };
+        o.hasOfferCatalog.itemListElement = activePricing(d).map(function (p) {
+          return { "@type": "Offer", name: p.name, description: p.description || undefined, price: String(p.price), priceCurrency: "INR",
+            url: abs("book.html"), availability: open ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            itemOffered: { "@type": "Service", name: p.name } };
+        });
+      });
     }
   };
 
@@ -434,7 +464,7 @@
   /* ---------- Run page renderers once data is in ---------- */
   dataReady.then(function (d) {
     if (d) {
-      ["banner", "social", "hero", "pricing", "about", "featured"].forEach(function (k) {
+      ["banner", "social", "hero", "pricing", "about", "featured", "ld"].forEach(function (k) {
         try { renderers[k](d); } catch (e) { if (window.console) console.error(k, e); }
       });
       observeReveals();

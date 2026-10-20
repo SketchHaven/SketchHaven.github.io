@@ -27,3 +27,10 @@ Changes go live after you press **Publish changes** (GitHub Pages then takes 1�
 - `images/` – artwork; photos added in the dashboard go to `images/gallery/`
 - `styles.css`, `main.js`, `flowers.js` – public site
 - `admin.html`, `admin.css`, `admin.js` – dashboard
+
+## SEO
+- Every page has a unique title/description, canonical URL, Open Graph + Twitter tags (preview image: `images/social-preview.jpg`, 1200×630) and JSON-LD.
+- `sitemap.xml` and `robots.txt` are in the repo root. Submit `https://sketchhaven.github.io/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+- Check structured data at https://search.google.com/test/rich-results and https://validator.schema.org after deploying.
+- The dashboard keeps the JSON-LD gallery/prices in sync in the browser; the static HTML holds the baseline Google reads first.
+- If you move to a custom domain, update every `https://sketchhaven.github.io` URL (canonical, og:url, sitemap, robots, JSON-LD).
