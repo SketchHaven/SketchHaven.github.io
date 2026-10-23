@@ -1,7 +1,7 @@
 /* Sketch Haven — home page flower animation.
    1) Line-art flowers that "draw themselves" in the hero, then sway.
    2) Soft petals drifting down the page background. */
-(function () {
+function shFlora() {
   "use strict";
   var host = document.querySelector(".hero-flora");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -82,7 +82,7 @@
     W = window.innerWidth; H = window.innerHeight;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var want = W < 700 ? 12 : Math.min(30, Math.round(W / 55));
+    var want = W < 700 ? 8 : Math.min(30, Math.round(W / 55));
     while (petalsArr.length < want) petalsArr.push(make(true));
     if (petalsArr.length > want) petalsArr.length = want;
   }
@@ -136,4 +136,12 @@
   window.addEventListener("resize", resize);
   document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else start(); });
   start();
+}
+/* Start after the page has loaded and the browser is idle, so the animation never competes with first paint. */
+(function () {
+  function go() {
+    if ("requestIdleCallback" in window) requestIdleCallback(shFlora, { timeout: 1500 });
+    else setTimeout(shFlora, 200);
+  }
+  if (document.readyState === "complete") go(); else window.addEventListener("load", go);
 })();

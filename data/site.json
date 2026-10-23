@@ -13,7 +13,7 @@
       "message": "Commissions are currently closed. Follow Instagram for updates on when slots reopen."
     },
     "deliveryTime": "1 week to 1 month",
-    "instagram": "https://www.instagram.com/anmols_.art/",
+    "instagram": "https://www.instagram.com/anmols_.art",
     "youtube": "https://youtube.com/@anmolsart17",
     "sizes": [
       "A5",
@@ -43,18 +43,6 @@
   ],
   "gallery": [
     {
-      "id": "amvk1bzn92e8g",
-      "title": "Tanjiro Kamado",
-      "caption": "",
-      "category": "Graphite",
-      "full": "images/gallery/amvk1bzn92e8g.jpg",
-      "thumb": "images/gallery/amvk1bzn92e8g-thumb.jpg",
-      "w": 1080,
-      "h": 1080,
-      "featured": true,
-      "added": "2026-10-22"
-    },
-    {
       "id": "art-3",
       "title": "The High Collar",
       "caption": "Detailed graphite portrait.",
@@ -79,6 +67,18 @@
       "added": "2023-08-01"
     },
     {
+      "id": "art-7",
+      "title": "Tanjiro, Smiling",
+      "caption": "Colour pencil and ink sketch of an anime character in a tuxedo.",
+      "category": "Colour",
+      "full": "images/art-7.jpg",
+      "thumb": "images/art-7-thumb.jpg",
+      "w": 1080,
+      "h": 1080,
+      "featured": true,
+      "added": "2026-10-23"
+    },
+    {
       "id": "art-4",
       "title": "The Moustache",
       "caption": "Graphite portrait.",
@@ -99,7 +99,7 @@
       "thumb": "images/art-5-thumb.jpg",
       "w": 1177,
       "h": 1600,
-      "featured": false,
+      "featured": true,
       "added": "2023-08-01"
     },
     {
@@ -123,7 +123,7 @@
       "thumb": "images/art-6-thumb.jpg",
       "w": 576,
       "h": 732,
-      "featured": false,
+      "featured": true,
       "added": "2023-08-01"
     }
   ]
