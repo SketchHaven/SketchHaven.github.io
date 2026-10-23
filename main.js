@@ -168,14 +168,14 @@
       [a, b].forEach(function (fig, idx) {
         var it = feat[idx]; if (!fig || !it) return;
         var img = fig.querySelector("img"), cap = fig.querySelector("figcaption");
-        img.src = it.thumb || it.full; img.alt = it.title || ""; if (cap) cap.textContent = it.title || "";
+        if (img.getAttribute("src") !== (it.thumb || it.full)) { img.removeAttribute("srcset"); img.src = it.thumb || it.full; } img.alt = it.caption || it.title || ""; if (cap) cap.textContent = it.title || "";
       });
       if (!wall) return;
       clear(wall);
       feat.forEach(function (it) {
         var ar = it.w && it.h ? it.w + " / " + it.h : "4 / 5";
         wall.appendChild(h("a", { class: "frame reveal", href: "gallery.html#" + encodeURIComponent(it.id), style: "--ar:" + ar }, [
-          h("img", { src: it.thumb || it.full, alt: it.title || "Artwork", loading: "lazy", width: it.w ? 480 : null, height: it.w ? Math.round(480 * it.h / it.w) : null }),
+          h("img", { src: it.thumb || it.full, alt: it.caption || it.title || "Artwork", loading: "lazy", width: it.w ? 480 : null, height: it.w ? Math.round(480 * it.h / it.w) : null }),
           h("figcaption", { text: it.title || "" })
         ]));
       });

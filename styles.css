@@ -339,3 +339,7 @@ form.panel fieldset:disabled { opacity: .5; }
 /* Comfortable tap targets for footer links (24px+ high) */
 .site-footer li a, .site-footer .brand-line + p a { display: inline-block; padding: 4px 0; min-height: 24px; }
 .site-footer li { margin-bottom: .2em; }
+
+.site-footer .copyright a, .callout a, p a, .field .hint a, li a.inline { text-decoration: underline; text-underline-offset: 3px; }
+.site-footer .copyright a:hover { text-decoration-thickness: 2px; }
+p a.btn { text-decoration: none; }
